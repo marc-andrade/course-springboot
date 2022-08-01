@@ -3,9 +3,8 @@ package com.example.demo.course.entities;
 import com.example.demo.course.entities.pk.OrderItemPK;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -13,6 +12,7 @@ import java.util.Objects;
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	@EmbeddedId
@@ -20,7 +20,7 @@ public class OrderItem implements Serializable {
 	
 	private Integer quantity;
 	private Double price;
-	
+
 	public OrderItem() {
 		
 	}
@@ -39,13 +39,13 @@ public class OrderItem implements Serializable {
 	public void setOrder(Order order) {
 		id.setOrder(order);
 	}
-	
+
 	public Product getProduct() {
 		return id.getProduct();
 	}
-	
+
 	public void setOrder(Product product) {
-		id.setProduct(product);;
+		id.setProduct(product);
 	}
 	
 	public Integer getQuantity() {

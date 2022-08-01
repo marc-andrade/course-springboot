@@ -1,18 +1,19 @@
 package com.example.demo.course.entities.pk;
 
-import java.io.Serializable;
-import java.util.Objects;
+import com.example.demo.course.entities.Order;
+import com.example.demo.course.entities.Product;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import com.example.demo.course.entities.Order;
-import com.example.demo.course.entities.Product;
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.Objects;
 
 @Embeddable
 public class OrderItemPK implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
