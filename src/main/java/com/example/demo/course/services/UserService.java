@@ -1,14 +1,12 @@
 package com.example.demo.course.services;
 
-import java.util.List;
-
-import javax.persistence.EntityNotFoundException;
-
+import com.example.demo.course.entities.User;
+import com.example.demo.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.course.entities.User;
-import com.example.demo.course.repositories.UserRepository;
+import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -24,5 +22,9 @@ public class UserService {
 		
 		return userRepository.findById(id).orElseThrow(
 				() -> new EntityNotFoundException("User not found"));
+	}
+
+	public User insert(User obj){
+		return userRepository.save(obj);
 	}
 }
